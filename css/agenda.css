@@ -9,6 +9,14 @@ body {
 	background-repeat: no-repeat;
 	background-size: cover;
 }
+
+.back-register {
+	background: url('http://agenda.local/img/bg-register.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+
 .footer-landpage {
 	background-color: rgba(0,0,0,0.8);
 	border-top: solid 1px #535353;
