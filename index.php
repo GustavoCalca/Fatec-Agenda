@@ -2,9 +2,9 @@
 <html lang="pt_br">
 
 <head>
-	<?php
-		include_once('pages/header.php');
-	?>
+<?php
+	include_once('pages/header.php');
+?>
 </head>
 
 <body class="back-page">
@@ -31,6 +31,9 @@
 		</div><!-- /.container-fluid -->
 	</nav>
 
+	<!---------------------------------------------->
+	<!-- Este trecho será colocado em footer.php  -->
+	<!---------------------------------------------->
 	<footer class="main-footer footer-landpage">
 		<div class="pull-right hidden-xs">
 			<div style="text-align: right">
