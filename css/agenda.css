@@ -34,6 +34,7 @@ body {
 	margin-left: 350px;
 	margin-right: 350px;
 	margin-top: 90px;
+	padding: 20px 50px 20px 50px;
 }
 
 .register-title {
@@ -55,7 +56,7 @@ body {
 }
 
 .footer-landpage {
-	background-color: rgba(0,0,0,0.8);
+	background-color: rgba(0, 0, 0, 0.8);
 	border-top: solid 1px #535353;
 	color: #acacac;
 	left: 0px;
