@@ -44,24 +44,29 @@
 				</div>
 				<br>
 
+				<!-- senha do usuário -->
+				<div class="input-group">
+					<span class="input-group-addon" id="input-password">
+						<span class="fas fa-asterisk"></span>
+					</span>
+					<input autocomplete="off" type="password" class="form-control"
+						name="password" required placeholder="Senha"
+						aria-describedby="input-password">
+				</div>
+				<br>
 
+				<!-- Botão de envio -->
+				<div class="row" style="margin-bottom:10px">
+					<div class="col-xs-12">
+						<button type="submit"
+							class="btn btn-primary btn-block btn-flat">
+							<span class="fas fa-lock"> Enviar</span>
+						</button>
+					</div>
+				</div>
 			</form>
-
 		</div>
 	</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <?php
 	include_once('footer.php');
