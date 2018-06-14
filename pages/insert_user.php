@@ -12,35 +12,64 @@ $senha = trim($senha);
 
 $erros = "";
 if ( empty($nome_usuario) )
-    $erros .= "Campo nome do usuário está vazio.<br>";
+    $erros .= "Campo nome do usuário está vazio. ";
 
 if ( empty($email) )
-    $erros .= "Campo e-mail está vazio.<br>";
+    $erros .= "Campo e-mail está vazio. ";
 
 if ( empty($senha) )
-    $erros .= "Senha está vazia.<br>";
+    $erros .= "Senha está vazia.";
 
 if ( !empty($erros) )
 {
     echo "
-        Foram encontradas inconsistências de dados.<br>
-        Veja abaixo os erros identificados:<br>" .  $erros;
+        <script>
+            alert(\"$erros\")
+        </script>
 
-    echo "<br><br><a href='http://agenda.local/pages/register.php'>Clique aqui para voltar</a>";
+        <html>
+            <head>
+                 <META http-equiv=\"refresh\" content=\"0;URL=http://agenda.local/pages/register.php\">
+            </head>
+        </html>
+    ";
 }
 
 // Parametriza a conexão com o banco de dados
 
-$host = "localhost:3306";
-$user = "homestead";
-$password = "secret";
+$host = "localhost";
+$user = "root";
+$password = "root";
 $database = "agenda";
 
+// Faz a conexão com o servidor MySQL
 $con = mysqli_connect($host, $user, $password);
 
+// Verifica se ocorreu erro de conexão
 if (!$con) {
+    // Se sim, então encerra o programa com uma mensagem de erro
     die("Erro de conexão com o servidor do BD");
 }
 
+// Determina qual banco de dados que será utilizado
+$db = mysqli_select_db($con, $database);
+
+// Verifica se ocorreu erro na seleção
+if (!$db) {
+    // Se sim, então encerra o programa com uma mensagem de erro
+    die("Erro ao selecionar o banco de dados.");
+}
+
+// Cria a sentença SQL para inserir o usuário
+$sql = "insert into tbl_usuarios (nome_usuario, senha) values(\"$nome_usuario\", \"$senha\")";
+
+// Envia o insert para o banco de dados
+$result = mysqli_query($sql);
 
 ?>
+
+<html>
+    <head>
+        <META http-equiv="refresh" content="1;URL=http://agenda.local/pages/login.php">
+    </head>
+</html>
