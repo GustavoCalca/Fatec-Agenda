@@ -1,45 +1,28 @@
 <?php
 
 // Recebe os dados do formulário
-$nome_usuario = $_POST["user"];
-$email = $_POST["email"];
-$senha = $_POST["password"];
+$nome_cidade = $_POST["nome_cidade"];
+$estado = $_POST["estado"];
 
 // Verifica se os dados estão corretos
-$nome_usuario = trim($nome_usuario);
-$email = trim($email);
-$senha = trim($senha);
+$nome_cidade = trim($nome_cidade);
 
 $erros = "";
-if ( empty($nome_usuario) )
-    $erros .= "Campo nome do usuário está vazio. ";
+if ( empty($nome_cidade) )
+    $erros .= "Campo nome da cidade está vazio. ";
 
-if ( empty($email) )
-    $erros .= "Campo e-mail está vazio. ";
-
-if ( empty($senha) )
-    $erros .= "Senha está vazia.";
-
-if ( !empty($erros) )
+if (!empty($erros))
 {
     echo "
-        <script type=\"text/javascript\">
-            function alerta() {
-                swal(\"".$erros."\");
-            }
-        </script>
-
         <html>
             <head>
-                 <!-- <META http-equiv=\"refresh\" content=\"0;URL=http://agenda.local/pages/register.php\"> -->
+                <META http-equiv=\"refresh\" content=\"0;URL=http://agenda.local/pages/cad-cidade.php\">
+                
             </head>
-            <body onload=\"alerta();\">
-            </body>
+            <body onload='alert($erros);'></body>
         </html>
     ";
-    die();
-}
-
+} else {
 // Parametriza a conexão com o banco de dados
 
 $host = "localhost";
@@ -73,8 +56,9 @@ $result = mysqli_query($sql);
 
 ?>
 
-<html>
+echo "<html>
     <head>
-        <META http-equiv="refresh" content="1;URL=http://agenda.local/pages/login.php">
+        <META http-equiv=\"refresh\" content=\"1;URL=http://agenda.local/pages/cad-cidade.php\">
     </head>
-</html>
+</html>";
+}
